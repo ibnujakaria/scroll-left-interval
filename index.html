@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .scrollable {
+      width: 300px;
+      border: 2px solid red;
+      overflow-x: scroll;
+      white-space: nowrap;
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <div
+    class="scrollable"
+    dir="rtl"
+  >
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+      لوريم 
+    </div>
+  <script>
+    const scrollable = document.querySelector('.scrollable')
+
+    let percentage = 0
+
+    setInterval(() => {
+      const totalDistance = scrollable.scrollWidth - scrollable.clientWidth
+      const distance = totalDistance * (percentage  / 100)
+
+      scrollable.scrollLeft = distance
+      percentage -= 0.1
+      
+      if (percentage == 100 || percentage === -100) {
+        percentage = 0
+      }
+    }, 100)
+  </script>
+</body>
+</html>
